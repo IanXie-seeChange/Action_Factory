@@ -1,4 +1,4 @@
-name: Build and Push dist
+name: Build and Push Speaking Exercise Docker Image
 
 on:
   release:
