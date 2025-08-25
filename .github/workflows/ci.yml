@@ -62,7 +62,7 @@ jobs:
 
   notify-teams:
     if: always()
-    needs: [ build ]
+    needs: [ action_trigger ]
     runs-on: ubuntu-latest
     steps:
       - name: Send Teams Notification
