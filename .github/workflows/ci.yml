@@ -1,4 +1,4 @@
-name: ${{github.ref}}
+name: Build and Push dist
 
 on:
   release:
