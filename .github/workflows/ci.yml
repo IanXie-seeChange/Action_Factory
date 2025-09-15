@@ -74,16 +74,16 @@ jobs:
           -d '{
             "@type": "MessageCard",
             "@context": "http://schema.org/extensions",
-            "themeColor": "${{ needs.build.result == 'success' && '00FF00' || 'FF0000' }}",
-            "summary": "${{ needs.build.result == 'success' && '🎉 Build succeeded!' || '❌ Build failed!' }}:${{ github.repository }}:${{ github.workflow }}",
-            "title": "${{ needs.build.result == 'success' && '🎉 Build succeeded!' || '❌ Build failed!' }}:${{ github.repository }}:${{ github.workflow }}",
+            "themeColor": "${{ needs.action_trigger.result == 'success' && '00FF00' || 'FF0000' }}",
+            "summary": "${{ needs.action_trigger.result == 'success' && '🎉 Build succeeded!' || '❌ Build failed!' }}:${{ github.repository }}:${{ github.workflow }}",
+            "title": "${{ needs.action_trigger.result == 'success' && '🎉 Build succeeded!' || '❌ Build failed!' }}:${{ github.repository }}:${{ github.workflow }}",
             "sections": [{
               "facts": [
                 { "name": "Repository", "value": "${{ github.repository }}" },
                 { "name": "Triggered by", "value": "${{ github.event_name }}" },
                 { "name": "Commit Message", "value": "${{ github.event.head_commit.message }}" },
                 { "name": "Author", "value": "@${{ github.actor }}" },
-                { "name": "Result", "value": "${{ needs.build.result }}" }
+                { "name": "Result", "value": "${{ needs.action_trigger.result }}" }
               ],
               "text": "[View Workflow Run](${{ env.RUN_URL }})"
             }]
