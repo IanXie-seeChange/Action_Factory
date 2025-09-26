@@ -17,7 +17,8 @@ jobs:
       fail-fast: false
     steps:
       - name: get tag info
-        uses: MashyChen/tag-parse-action@main
+#        uses: MashyChen/tag-parse-action@main
+        uses: Seechange-edu/Parse-Action-Tag
         with:
           githubToken: ${{ secrets.ACTION_TOKEN }}
           type: parse
