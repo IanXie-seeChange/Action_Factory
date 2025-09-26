@@ -57,7 +57,7 @@ jobs:
             if [ "$(docker ps -a --format '{{.Names}}' | grep -c ${{ env.NAME }})" -gt 0 ]; then 
               docker rm -f ${{ env.NAME }}
             fi
-            docker run --name ${{ env.NAME }} -d -p ${{ env.OUT_PORT }}:${{ env.PORT }} ${{ env.RUN_ARGS }} --restart unless-stopped ${{ env.IMAGE }}
+            docker run --name ${{ env.NAME }} -d -p ${{ env.OUT_PORT }}:${{ env.PORT }} -p ${{ env.OUT_PORT1 }}:${{ env.PORT1 }} ${{ env.RUN_ARGS }} --restart unless-stopped ${{ env.IMAGE }}
             docker image prune --force
             docker container prune --force
 
